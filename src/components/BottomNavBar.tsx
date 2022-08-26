@@ -49,10 +49,10 @@ const useStyles = makeStyles((theme?: any) => ({
     transform: "translateY(-50%)",
     display: "flex",
     flexDirection: "column",
-    alignItems: "end",
-    justifyContent: "end",
+    alignItems: "flex-end",
+    justifyContent: "flex-end",
     rowGap: "25px",
-    padding: "0 20px 25px 0",
+    padding: "0 20px 25px 0 !important",
   },
 }));
 
