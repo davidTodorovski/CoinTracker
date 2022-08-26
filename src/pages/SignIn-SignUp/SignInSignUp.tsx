@@ -12,12 +12,15 @@ import LogoWithText from "../../components/LogoWithText";
 
 const useStyles = makeStyles((theme?: any) => ({
   mainContainer: {
-    height: "100vh",
+    minHeight: "100vh",
     maxWidth: "500px",
-    width: "85% !important",
-    marginLeft: "auto !important",
-    marginRight: "auto !important",
+    width: "85% ",
+    paddingBottom: "10px",
+    marginLeft: "auto ",
+    marginRight: "auto",
     alignItems: "center",
+    display: "flex",
+    flexDirection: "column",
   },
   heading: {
     letterSpacing: "10px !important",
@@ -115,106 +118,104 @@ const SignInSignUp = () => {
   };
 
   return (
-    <form onSubmit={handleFormSubmit}>
-      <Grid container flexDirection="column" className={classes.mainContainer}>
-        <LogoWithText />
-        <Typography variant="h5" align="center" className={classes.heading}>
-          {currentLocation === "/" ? "SIGN IN" : "SIGN UP"}
-        </Typography>
-        <TextField
-          helperText={usernameErrorMsg ? usernameErrorMsg : ""}
-          style={{ marginBottom: "25px" }}
-          label="Username"
-          name="username"
-          value={formData.username}
-          onChange={handleFormData}
-          fullWidth
-          error={usernameErrorMsg ? true : false}
-          onBlur={() => {
-            formData.username.length > 0 &&
-              validateUsernameHandler(formData.username);
-            formData.username.length === 0 && setUsernameErrorMsg("");
-          }}
-        />
-        <TextField
-          helperText={passwordErrorMsg ? passwordErrorMsg : ""}
-          value={formData.password}
-          id="outlined-basic"
-          variant="outlined"
-          label="Password"
+    <form onSubmit={handleFormSubmit} className={classes.mainContainer}>
+      <LogoWithText />
+      <Typography variant="h5" align="center" className={classes.heading}>
+        {currentLocation === "/" ? "SIGN IN" : "SIGN UP"}
+      </Typography>
+      <TextField
+        helperText={usernameErrorMsg ? usernameErrorMsg : ""}
+        style={{ marginBottom: "25px" }}
+        label="Username"
+        name="username"
+        value={formData.username}
+        onChange={handleFormData}
+        fullWidth
+        error={usernameErrorMsg ? true : false}
+        onBlur={() => {
+          formData.username.length > 0 &&
+            validateUsernameHandler(formData.username);
+          formData.username.length === 0 && setUsernameErrorMsg("");
+        }}
+      />
+      <TextField
+        helperText={passwordErrorMsg ? passwordErrorMsg : ""}
+        value={formData.password}
+        id="outlined-basic"
+        variant="outlined"
+        label="Password"
+        color="primary"
+        name="password"
+        fullWidth
+        type={visiblePass ? "text" : "password"}
+        onChange={handleFormData}
+        error={passwordErrorMsg ? true : false}
+        onBlur={() => {
+          formData.password.length > 0 &&
+            validatePasswordHandler(formData.password);
+          formData.password.length === 0 && setPasswordErrorMsg("");
+        }}
+        InputProps={{
+          endAdornment: (
+            <IconButton
+              style={{ position: "absolute", right: "10px" }}
+              onClick={() => setVisiblePass(!visiblePass)}
+            >
+              {visiblePass ? <Visibility /> : <VisibilityOff />}
+            </IconButton>
+          ),
+        }}
+      />
+      {!loading ? (
+        <Button
           color="primary"
-          name="password"
-          fullWidth
-          type={visiblePass ? "text" : "password"}
-          onChange={handleFormData}
-          error={passwordErrorMsg ? true : false}
-          onBlur={() => {
-            formData.password.length > 0 &&
-              validatePasswordHandler(formData.password);
-            formData.password.length === 0 && setPasswordErrorMsg("");
-          }}
-          InputProps={{
-            endAdornment: (
-              <IconButton
-                style={{ position: "absolute", right: "10px" }}
-                onClick={() => setVisiblePass(!visiblePass)}
-              >
-                {visiblePass ? <Visibility /> : <VisibilityOff />}
-              </IconButton>
-            ),
-          }}
-        />
-        {!loading ? (
-          <Button
-            color="primary"
-            type="submit"
-            className={classes.button}
-            variant="contained"
-          >
-            {currentLocation === "/" ? "SIGN IN" : "SIGN UP"}
-          </Button>
-        ) : (
-          <Button
-            color="primary"
-            type="submit"
-            className={classes.button}
-            variant="contained"
-          >
-            Loading...
-          </Button>
-        )}
-        {error && (
-          <Alert style={{ marginBottom: "20px" }} severity="error">
-            An error occurred, Please try again.
-          </Alert>
-        )}
+          type="submit"
+          className={classes.button}
+          variant="contained"
+        >
+          {currentLocation === "/" ? "SIGN IN" : "SIGN UP"}
+        </Button>
+      ) : (
+        <Button
+          color="primary"
+          type="submit"
+          className={classes.button}
+          variant="contained"
+        >
+          Loading...
+        </Button>
+      )}
+      {error && (
+        <Alert style={{ marginBottom: "20px" }} severity="error">
+          An error occurred, Please try again.
+        </Alert>
+      )}
+      <Typography
+        variant="subtitle2"
+        display="block"
+        gutterBottom
+        color="textSecondary"
+        align="center"
+      >
+        {currentLocation === "/"
+          ? "Don't have account yet?"
+          : "Already have an account?"}
+      </Typography>
+      <Link
+        to={currentLocation === "/" ? "/sign-up" : "/"}
+        style={{ textDecoration: "none" }}
+      >
         <Typography
           variant="subtitle2"
-          display="block"
           gutterBottom
-          color="textSecondary"
+          color="primary"
           align="center"
         >
           {currentLocation === "/"
-            ? "Don't have account yet?"
-            : "Already have an account?"}
+            ? "Sign up now! It's free!"
+            : "Sign in please!"}
         </Typography>
-        <Link
-          to={currentLocation === "/" ? "/sign-up" : "/"}
-          style={{ textDecoration: "none" }}
-        >
-          <Typography
-            variant="subtitle2"
-            gutterBottom
-            color="primary"
-            align="center"
-          >
-            {currentLocation === "/"
-              ? "Sign up now! It's free!"
-              : "Sign in please!"}
-          </Typography>
-        </Link>
-      </Grid>
+      </Link>
     </form>
   );
 };

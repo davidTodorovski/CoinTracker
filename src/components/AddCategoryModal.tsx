@@ -25,7 +25,7 @@ const useStyles = makeStyles({
     justifyContent: "center",
   },
   modalContainer: {
-    marginBottom: "30px !important",
+    marginBottom: "75px !important",
     backgroundColor: "#fff",
     maxWidth: "500px !important",
     width: "90%",
