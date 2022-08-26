@@ -159,7 +159,7 @@ const Categories = () => {
                     }
                     style={{
                       display: "flex",
-                      alignItems: "end",
+                      alignItems: "flex-end",
                       justifyContent: "center",
                       flexDirection: "column",
                     }}
