@@ -34,6 +34,8 @@ const IncomePage = ({ setCurrentPage }: Props) => {
           How much money do you have at the moment?
         </Typography>
         <TextField
+          style={{ marginBottom: "100px" }}
+          inputProps={{ style: { textAlign: "right" } }}
           type="number"
           id="filled-error-helper-text"
           label="Amount"

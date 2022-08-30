@@ -44,15 +44,12 @@ const useStyles = makeStyles((theme?: any) => ({
   },
   modal: {
     zIndex: "100 !important",
-    height: "calc(100vh - 130px)",
-    top: "50% !important",
-    transform: "translateY(-50%)",
     display: "flex",
     flexDirection: "column",
     alignItems: "flex-end",
     justifyContent: "flex-end",
     rowGap: "25px",
-    padding: "0 20px 40px 0 !important",
+    padding: "0 20px 100px 0",
   },
 }));
 
