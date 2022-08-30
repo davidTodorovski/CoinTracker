@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme?: any) => ({
     alignItems: "flex-end",
     justifyContent: "flex-end",
     rowGap: "25px",
-    padding: "0 20px 25px 0 !important",
+    padding: "0 20px 40px 0 !important",
   },
 }));
 

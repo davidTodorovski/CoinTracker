@@ -1,5 +1,6 @@
 import {
   Button,
+  Divider,
   InputAdornment,
   InputBase,
   List,
@@ -47,7 +48,7 @@ const CategoryAmountPage = () => {
 
   return (
     <>
-      <div style={{ width: "100%", marginBottom: "20px" }}>
+      <div style={{ width: "100%", marginBottom: "50px" }}>
         <Typography
           variant="subtitle2"
           style={{ margin: "10px 0 70px" }}
@@ -58,28 +59,35 @@ const CategoryAmountPage = () => {
         </Typography>
         <List dense>
           {selectedCategories.map((category) => (
-            <ListItem key={category.id} divider={true} disableGutters>
-              <ListItemIcon>
-                <Icon style={{ color: "black" }}>{category.iconName}</Icon>
-              </ListItemIcon>
-              <ListItemText primary={category.name} />
-              <InputAdornment
-                onChange={(e) => updateSelectedCategoriesAmount(e, category.id)}
-                position="end"
-                children={
-                  <InputBase
-                    type="number"
-                    color="primary"
-                    style={{
-                      width: "110px",
-                      backgroundColor: "#f5f5f5",
-                      marginLeft: "auto",
-                      padding: "0 8px",
-                    }}
-                  />
-                }
-              />
-            </ListItem>
+            <div key={category.id}>
+              <ListItem disableGutters>
+                <ListItemIcon>
+                  <Icon style={{ color: "black", marginRight: "47px" }}>
+                    {category.iconName}
+                  </Icon>
+                </ListItemIcon>
+                <ListItemText primary={category.name} />
+                <InputAdornment
+                  onChange={(e) =>
+                    updateSelectedCategoriesAmount(e, category.id)
+                  }
+                  position="end"
+                  children={
+                    <InputBase
+                      type="number"
+                      color="primary"
+                      style={{
+                        width: "110px",
+                        backgroundColor: "#f5f5f5",
+                        marginLeft: "auto",
+                        padding: "0 8px",
+                      }}
+                    />
+                  }
+                />
+              </ListItem>
+              <Divider variant="inset" />
+            </div>
           ))}
         </List>
       </div>

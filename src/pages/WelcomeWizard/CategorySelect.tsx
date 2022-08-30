@@ -1,6 +1,7 @@
 import {
   Button,
   Checkbox,
+  Divider,
   List,
   ListItem,
   ListItemIcon,
@@ -55,19 +56,24 @@ const CategorySelect = ({ setCurrentPage }: Props) => {
         </Typography>
         <List dense>
           {Categories.map((category) => (
-            <ListItem key={category.id} divider={true} disableGutters>
-              <ListItemIcon>
-                <Icon style={{ color: "black" }}>{category.iconName}</Icon>
-              </ListItemIcon>
-              <ListItemText primary={category.name} />
-              <ListItemSecondaryAction>
-                <Checkbox
-                  onChange={(e) => addSelectedCategories(e, category)}
-                  edge="end"
-                  color="primary"
-                />
-              </ListItemSecondaryAction>
-            </ListItem>
+            <div key={category.id}>
+              <ListItem disableGutters>
+                <ListItemIcon>
+                  <Icon style={{ color: "black", marginRight: "47px" }}>
+                    {category.iconName}
+                  </Icon>
+                </ListItemIcon>
+                <ListItemText primary={category.name} />
+                <ListItemSecondaryAction>
+                  <Checkbox
+                    onChange={(e) => addSelectedCategories(e, category)}
+                    edge="end"
+                    color="primary"
+                  />
+                </ListItemSecondaryAction>
+              </ListItem>
+              <Divider variant="inset" />
+            </div>
           ))}
         </List>
       </div>
