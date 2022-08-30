@@ -144,6 +144,7 @@ const BottomNavBar = () => {
         </Fab>
       </Grid>
       <Modal
+        BackdropProps={{ style: { background: "rgba(255, 255, 255, 0.6)" } }}
         open={open}
         className={classes.modal}
         onClose={() => setOpen(false)}

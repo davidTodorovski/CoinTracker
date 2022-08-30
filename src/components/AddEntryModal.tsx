@@ -132,6 +132,7 @@ const AddEntryModal = () => {
 
   return (
     <Modal
+      BackdropProps={{ style: { background: "rgba(255, 255, 255, 0.6)" } }}
       open={entryButtonClicked || entryToUpdate ? true : false}
       className={classes.modal}
       onClose={closeModal}

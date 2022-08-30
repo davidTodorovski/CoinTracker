@@ -136,6 +136,7 @@ const AddCategoryModal = () => {
 
   return (
     <Modal
+      BackdropProps={{ style: { background: "rgba(255, 255, 255, 0.6)" } }}
       open={categoryToUpdate || categoryModalOpen ? true : false}
       className={classes.modal}
       onClose={closeModal}
