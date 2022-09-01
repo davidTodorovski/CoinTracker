@@ -59,7 +59,7 @@ const AddEntryModal = () => {
     entryToUpdate ? entryToUpdate.type : entryButtonClicked
   );
   const catToList = selectedCategories
-    .filter((sCat) => sCat.type === categoryType)
+    .filter((sCat) => sCat.type === categoryType && sCat.isEnabled)
     .map((sCat) => sCat.name);
   const [categoriesToList, setCategoriesToList] = useState(catToList);
   const catName = selectedCategories.find(

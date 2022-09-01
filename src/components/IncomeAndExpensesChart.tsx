@@ -15,7 +15,14 @@ const IncomeAndExpensesChart = () => {
         data:
           entries &&
           entries
-            .filter((entry) => entry.type === "Expense")
+            .filter(
+              (entry) =>
+                entry.type === "Expense" &&
+                selectedCategories.find(
+                  (sCat) =>
+                    sCat.id === entry.selectedCategoryId && sCat.isEnabled
+                )
+            )
             .map((entry) => entry.amount)
             .reverse(),
         lineTension: 0.5,
@@ -29,7 +36,14 @@ const IncomeAndExpensesChart = () => {
         data:
           entries &&
           entries
-            .filter((entry) => entry.type === "Income")
+            .filter(
+              (entry) =>
+                entry.type === "Income" &&
+                selectedCategories.find(
+                  (sCat) =>
+                    sCat.id === entry.selectedCategoryId && sCat.isEnabled
+                )
+            )
             .map((entry) => entry.amount)
             .reverse(),
         lineTension: 0.5,

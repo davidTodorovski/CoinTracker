@@ -9,10 +9,10 @@ const IncomeChart = () => {
   const { selectedCategories, entries } = useBudgetContext();
 
   const categoriesNames = selectedCategories
-    .filter((sCat) => sCat.type === "Income")
+    .filter((sCat) => sCat.type === "Income" && sCat.isEnabled)
     .map((sCat) => sCat.name);
   const categoriesAmount = selectedCategories
-    .filter((sCat) => sCat.type === "Income")
+    .filter((sCat) => sCat.type === "Income" && sCat.isEnabled)
     .map((sCat) =>
       entries.reduce(
         (a, entry) =>
