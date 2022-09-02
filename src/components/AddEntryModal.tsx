@@ -81,21 +81,21 @@ const AddEntryModal = () => {
   const [categoryAmountError, setCategoryAmountError] = useState(false);
 
   const validateInputs = () => {
+    let error = true;
     if (!categoryName) {
       setCategoryNameError(true);
+      error = false;
+    } else {
+      setCategoryNameError(false);
     }
     if (categoryAmount === "" || +categoryAmount < 1) {
       setCategoryAmountError(true);
+      error = false;
+    } else {
+      setCategoryAmountError(false);
     }
 
-    if (!categoryName || categoryAmount === "" || +categoryAmount < 1) {
-      return false;
-    }
-
-    setCategoryNameError(false);
-    setCategoryAmountError(false);
-
-    return true;
+    return error;
   };
   const addOrUpdateHandler = () => {
     if (!validateInputs()) return;
