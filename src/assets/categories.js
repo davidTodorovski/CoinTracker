@@ -8,6 +8,14 @@ export const Categories = [
     isEnabled: true,
   },
   {
+    id: 11,
+    name: "Side Hustles",
+    type: "Income",
+    budget: "",
+    iconName: "currency_bitcoinicon",
+    isEnabled: true,
+  },
+  {
     id: 2,
     name: "Food",
     type: "Expense",
@@ -53,15 +61,7 @@ export const Categories = [
     name: "Traveling",
     type: "Expense",
     budget: "",
-    iconName: "flight_takeoff",
-    isEnabled: true,
-  },
-  {
-    id: 8,
-    name: "Coffee",
-    type: "Expense",
-    budget: "",
-    iconName: "local_cafe",
+    iconName: "flight",
     isEnabled: true,
   },
   {
@@ -69,7 +69,7 @@ export const Categories = [
     name: "Electronics",
     type: "Expense",
     budget: "",
-    iconName: "tv",
+    iconName: "cable",
     isEnabled: true,
   },
   {
