@@ -50,6 +50,12 @@ const SignInSignUp = () => {
   const { user, setUserHandler, setUserAvatarHandler } = useUser();
   const navigate = useNavigate();
 
+  useEffect(() => {
+    setFromData(defaultFormData);
+    setUsernameErrorMsg("");
+    setPasswordErrorMsg("");
+  }, [pathname]);
+
   const handleFormData = (e: React.ChangeEvent) => {
     const value = (e.target as HTMLInputElement).value;
     const name = (e.target as HTMLInputElement).name;
