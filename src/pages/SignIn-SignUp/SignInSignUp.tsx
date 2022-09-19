@@ -49,6 +49,7 @@ const SignInSignUp = () => {
   const [error, setError] = useState(false);
   const { user, setUserHandler, setUserAvatarHandler } = useUser();
   const navigate = useNavigate();
+  const { pathname } = location;
 
   useEffect(() => {
     setFromData(defaultFormData);
